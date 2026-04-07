@@ -1,1 +1,1 @@
-echo "# Terraform GitHub Actions Project" >> README.md
+echo "# Terraform GitHub Actions Project1" >> README.md
