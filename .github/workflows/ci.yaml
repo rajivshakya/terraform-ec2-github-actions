@@ -1,0 +1,24 @@
+name: terraform CI
+
+on:
+ pull_request:
+   branches: 
+     - master
+jobs:
+  terraform: 
+    runs-on: ubuntu-latest
+    steps:
+          - name: checkout code
+            uses: actions/checkout@v3
+          - name: Setup terraform
+            uses: actions/setup-terrafomr@v2
+          - name: terraform init
+            run: terraform init
+          - name: terraform formating check
+            run: terrafomr fmt -check
+          - name: Terraform validate
+            run: terrafomr validate
+          - name: terrafomr plan
+            run : terrafomr plan
+          - name: Run tfsec Scan
+            uses: aquasecurity/tfsec-action@v1.0.0
